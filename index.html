@@ -10,8 +10,9 @@
   <section class="section">
     <div class="container">
       <h1 class="title">
-        Hello World
+        Stoc-ster
       </h1>
+      <input id="search-input"></input>
       <p class="subtitle">
         My first website with <strong>Bulma</strong>!
       </p>
@@ -22,9 +23,9 @@
         <table class="table">
         <thead>
           <tr>
-            <th><abbr title="Position">Pos</abbr></th>
-            <th>Team</th>
-            <th><abbr title="Played">Pld</abbr></th>
+            <th><abbr title="Position">Symble</abbr></th>
+            <th>Stock</th>
+            <th><abbr title="Played">Price</abbr></th>
             <th><abbr title="Won">W</abbr></th>
             <th><abbr title="Drawn">D</abbr></th>
             <th><abbr title="Lost">L</abbr></th>
@@ -37,9 +38,9 @@
         </thead>
         <tfoot>
           <tr>
-            <th><abbr title="Position">Pos</abbr></th>
-            <th>Team</th>
-            <th><abbr title="Played">Pld</abbr></th>
+            <th><abbr title="Position">Stock</abbr></th>
+            <th>T</th>
+            <th><abbr title="Played">Price</abbr></th>
             <th><abbr title="Won">W</abbr></th>
             <th><abbr title="Drawn">D</abbr></th>
             <th><abbr title="Lost">L</abbr></th>
@@ -51,11 +52,11 @@
           </tr>
         </tfoot>
         <tbody>
-          <tr>
+          <tr id="row1">
             <th>1</th>
             <td><a href="https://en.wikipedia.org/wiki/Leicester_City_F.C." title="Leicester City F.C.">Leicester City</a> <strong>(C)</strong>
             </td>
-            <td>38</td>
+            <td id="price1"></td>
             <td>23</td>
             <td>12</td>
             <td>3</td>
@@ -65,7 +66,7 @@
             <td>81</td>
             <td>Qualification for the <a href="https://en.wikipedia.org/wiki/2016%E2%80%9317_UEFA_Champions_League#Group_stage" title="2016–17 UEFA Champions League">Champions League group stage</a></td>
           </tr>
-          <tr>
+          <tr id="row2">
             <th>2</th>
             <td><a href="https://en.wikipedia.org/wiki/Arsenal_F.C." title="Arsenal F.C.">Arsenal</a></td>
             <td>38</td>
@@ -186,6 +187,9 @@
           </tr>
         </tbody>
       </table>
+    </section>
+    <section>
+      
     </section>
   </body>
 </html>
