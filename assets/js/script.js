@@ -32,5 +32,5 @@ function apinewsreponce(responce) {
     var newsEl  = responce
 
     $("#newsCardDeck").append(newsEl);
-// }test comment
+
 var test = []
