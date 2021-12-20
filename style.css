@@ -1,0 +1,30 @@
+.title {
+    color:  rgb(231, 219, 233);
+    background-color: purple;
+    text-align: left;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'sans-serif';
+    padding: 5px 0px 5px 55px;
+}
+
+#search-input {
+    border-radius: 0px;
+    width: 300px;
+    height: 35px;
+    font-size: 35px;
+}
+
+#search-button {
+    display: inline;
+    color: rgb(119, 82, 119);
+    height: 35px;
+    font-size: 35px;
+}
+
+.stock-list {
+    align-items: center;
+    padding: 20px 200px 20px 200px;
+    justify-content: center;
+}
+#search {
+    background-color: purple;
+}
