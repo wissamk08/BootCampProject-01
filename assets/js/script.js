@@ -3,8 +3,10 @@ var headerEl = $(".section");
 const tBodyEl = $("tbody");
 const tRowEl = $("tr");
 
-var apiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 
+var apiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
+var newsApiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
+// $(#search-input).val();
 
 // Fix this to work for yesterday's date, if possible.
 var date = moment().subtract(4, 'days').format("YYYY-MM-DD");
@@ -64,7 +66,12 @@ function getAPI() {
     });
 }
 
+
 search.addEventListener("click", getAPI);
+
+// search.addEventListener("click", getAPI);
+// getAPI();
+
 
 
 // Create table
@@ -110,25 +117,70 @@ function renderTable() {
 renderTable();
 
 
-// Fetch Api for financial news 
-// fetch("https://yh-finance.p.rapidapi.com/news/v2/get-details?uuid=9803606d-a324-3864-83a8-2bd621e6ccbd&region=US", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "yh-finance.p.rapidapi.com",
-// 		"x-rapidapi-key": "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv"
-// 	}
-// })
-// .then(response => {
-// 	console.log(response);
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
 
-// function apinewsreponce(responce) {
-//     var newsEl  = responce
-
-//     $("#newsCardDeck").append(newsEl);
+companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-06-01/2020-06-17?apiKey=5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv"
 
 
-// }
+// Fetch Api for Financial News 
+
+function getNewsApi() {
+
+	fetch("https://tech-news3.p.rapidapi.com/wired", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "tech-news3.p.rapidapi.com",
+		"x-rapidapi-key": "fb63a7b6d5msh7afd34be9d3a803p195cdajsn344d92ba3d99"
+	}
+	})
+	.then(response => {
+		return response.json();
+		
+
+	}).then(function(data) {
+
+		console.log(data)
+		
+
+		renderNews(data);
+	})
+}
+
+function renderNews(news) {
+	// Create column for every object in news
+	for(i = 0; i < news.length; i++) {
+
+		console.log(news)
+
+
+		const newsCardBody = document.createElement("div");
+
+		const newsHeadLines = document.createElement("h2");
+
+		newsHeadLines.textContent = news[i].title
+
+		const newsLink = document.createElement("img");
+
+		newsLink.img = news[i].img
+
+		const newsPara = document.createElement("p");
+
+		newsPara.textContent = news[i].para
+
+		const newsPara = document.createElement("a");
+
+		newsPara.textContent = news[i].para
+
+
+		
+
+		newsCardBody.append(newsHeadLines, newsLink, newsPara);
+
+		$("#newsCardDeck").append(newsCardBody);
+
+	}
+}
+
+
+
+
+getNewsApi();
