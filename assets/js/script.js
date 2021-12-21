@@ -7,7 +7,7 @@ var apiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 // $(#search-input).val();
 
 // compTicker placeholder until full searchbar is written.
-var compTicker = "TSLA";
+var compTicker = "AAPL";
 var date = moment().subtract(3, 'days').format("YYYY-MM-DD");
 console.log(date);
 
