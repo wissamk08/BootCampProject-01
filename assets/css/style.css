@@ -16,6 +16,38 @@ header {
     background-color: rgb(13, 202, 177);
 }
 
+/* Dropdown Button */
+.dropbutton {
+    padding-top: 5px;
+    font-size: 22px;
+    border: none;
+}
+.dropdown-list {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-links {
+    display: none;
+    position: absolute;
+    background-color: black;
+}
+.dropdown-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-links a:hover {
+    background-color: rgb(151, 148, 148);
+}
+.dropdown-list:hover .dropdown-links {
+    display: block;
+}
+.dropdown-list .dropbutton {
+    background-color: rgb(13, 202, 177);
+}
+
+
+
 /* Footer Styling */
 #footer-label {
     margin-top: auto;
@@ -37,7 +69,7 @@ nav ul {
 
 .li:hover {
     text-decoration: underline gray;
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 nav a {
@@ -50,7 +82,7 @@ nav a {
 
 a:hover {
     text-decoration: underline;
-    transform: scale(1.5);
+    transform: scale(1.1);
 }
 
 /* Search Bar */
@@ -95,12 +127,17 @@ a:hover {
 .stock-list {
     width: 75%;
     align-items: center;
+<<<<<<< HEAD
+    padding: 20px;
+=======
     /* padding: 20px 200px 20px 200px; */
     justify-content: left;
+>>>>>>> main
     border-style: groove;
     border-color: rgb(13, 202, 177);
     border-radius: 20px;
     border-width: 20px;
+    width: 0%;
 }
 
 /* Search Button Style */
