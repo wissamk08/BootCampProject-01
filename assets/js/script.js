@@ -280,7 +280,7 @@ function renderNews(news) {
 
 
 
-getNewsApi();
+// getNewsApi();
 
 
 
