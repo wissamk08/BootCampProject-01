@@ -146,12 +146,13 @@ companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-
 
 
 // Fetch Api for Financial News 
+search.addEventListener("click", getNewsApi);
 
 function getNewsApi() {
 
-    const newsSearchURL = "https://api.polygon.io/v2/reference/news?ticker=" + compTicker + "&limit=10&apiKey=" + newsApiKey;
-
     compTicker = $("#search-input").val().toUpperCase();
+
+    const newsSearchURL = "https://api.polygon.io/v2/reference/news?ticker=" + compTicker +"&limit=10&apiKey=5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 
     fetch(newsSearchURL)
 
@@ -161,41 +162,43 @@ function getNewsApi() {
     .then(function (data) {
         
         console.log(data);
+
+        renderNews(data);
 	})
 	
-		renderNews(data);
+	
     
 }
 
 
-function renderNews(news) {
+function renderNews(data) {
 	// Create column for every object in news
     // Limiting the Array output to one object per output
-	for(i = 19; i < news.length; i++) {
+	for(i = 5; i < data.results.length; i++) {
 
-		console.log(news)
+		// console.log(data)
 
         // NEWS CARD 1 ============
+
+    
 		const newsCardBody1 = document.createElement("div")
 
 		const newsHeadLines = document.createElement("h2");
 
-		newsHeadLines.textContent = news[0].title
+		newsHeadLines.textContent = data.results[5].title
 
 		const newsImg = document.createElement("img")
-        // img.src = newsImg.textContent
-        // var src = document.getElementById("header1");
-        // src.appendChild(img);
 
-		newsImg.textContent = news[0].img
+		newsImg.src = data.results[5].image_url
 
 		const newsPara = document.createElement("p");
 
-		newsPara.textContent = news[0].para
+		newsPara.textContent = data.results[5].description
 
 		const newsLink = document.createElement("a");
 
-		newsLink.textContent = news[0].link
+		newsLink.textContent = data.results[5].article_url
+
         // Appending Parameters to Card
         newsCardBody1.append(newsImg, newsHeadLines, newsPara, newsLink);
         // Appending Card to newsCard Element
@@ -302,7 +305,7 @@ function renderNews(news) {
 
 
 
-// getNewsApi();
+getNewsApi();
 
 
 
