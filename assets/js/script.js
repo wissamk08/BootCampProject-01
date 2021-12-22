@@ -4,20 +4,24 @@ const tBodyEl = $("tbody");
 const tRowEl = $("tr");
 
 
-var apiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
+var apiKey = "_LaNx7emMoFfZ8iCsQNc9ljwjueJQf_z";
 var newsApiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 // $(#search-input).val();
 
 // Fix this to work for yesterday's date, if possible.
-var date = moment().subtract(4, 'days').format("YYYY-MM-DD");
+
+var daysPast = 1;
+var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
+
 console.log(date);
-
 var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
-
-
+var compTicker = $("#search-input").val().toUpperCase();
 
 function getAPI() {
-    var compTicker = $("#search-input").val().toUpperCase();
+
+    date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
+    compTicker = $("#search-input").val().toUpperCase();
+
     var companySearchURL = "https://api.polygon.io/v1/open-close/" + compTicker + "/" + date + "?adjusted=true&apiKey=" + apiKey;
 
     fetch(companySearchURL)
@@ -25,9 +29,25 @@ function getAPI() {
             return response.json();
     })
         .then(function (data) {
-
-            console.log(data);
             
+            console.log(data);
+
+        
+        if(data.status === "ERROR"){
+            daysPast++
+            if (daysPast === 10){
+                return
+            }
+            else{
+                getAPI()
+            };
+
+            };
+
+
+
+            
+
             // Do not add errors or empty arrays to stocksArray
             // & Display error message for user.
             if ($("#not-found-message")) {
@@ -36,6 +56,8 @@ function getAPI() {
             if ($("#error-status")) {
                 $("#error-status").remove();
             }
+
+            
 
             if (data.status === "NOT_FOUND") {
                 var notFound = document.createElement("p");
@@ -51,6 +73,8 @@ function getAPI() {
                 headerEl.append(errorStatus);
                 return;
             }
+
+            
 
             // Set newest data to top of stocksArray.
             stocksArray.unshift(data);
@@ -122,63 +146,64 @@ companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-
 
 
 // Fetch Api for Financial News 
+search.addEventListener("click", getNewsApi);
 
 function getNewsApi() {
 
-	fetch("https://tech-news3.p.rapidapi.com/wired", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "tech-news3.p.rapidapi.com",
-		"x-rapidapi-key": "fb63a7b6d5msh7afd34be9d3a803p195cdajsn344d92ba3d99"
-	}
+    compTicker = $("#search-input").val().toUpperCase();
+
+    const newsSearchURL = "https://api.polygon.io/v2/reference/news?ticker=" + compTicker +"&limit=10&apiKey=5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
+
+    fetch(newsSearchURL)
+
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        
+        console.log(data);
+
+        renderNews(data);
 	})
-	.then(response => {
-		return response.json();
-		
-
-	}).then(function(data) {
-
-		console.log(data)
-		
-
-		renderNews(data);
-	})
+	
+	
+    
 }
 
-function renderNews(news) {
+
+function renderNews(data) {
 	// Create column for every object in news
     // Limiting the Array output to one object per output
-	for(i = 19; i < news.length; i++) {
+	for(i = 5; i < data.results.length; i++) {
 
-		console.log(news)
+		// console.log(data)
 
         // NEWS CARD 1 ============
+
+    
 		const newsCardBody1 = document.createElement("div")
 
 		const newsHeadLines = document.createElement("h2");
 
-		newsHeadLines.textContent = news[0].title
+		newsHeadLines.textContent = data.results[5].title
 
 		const newsImg = document.createElement("img")
-        // img.src = newsImg.textContent
-        // var src = document.getElementById("header1");
-        // src.appendChild(img);
 
-		newsImg.textContent = news[0].img
+		newsImg.src = data.results[5].image_url
 
 		const newsPara = document.createElement("p");
 
-		newsPara.textContent = news[0].para
+		newsPara.textContent = data.results[5].description
 
 		const newsLink = document.createElement("a");
 
-		newsLink.textContent = news[0].link
+		newsLink.textContent = data.results[5].article_url
+
         // Appending Parameters to Card
         newsCardBody1.append(newsImg, newsHeadLines, newsPara, newsLink);
         // Appending Card to newsCard Element
         $("#newsCard1").append(newsCardBody1);
         
-
         // NEWS CARD 2 ===========
 
         const newsCardBody2 = document.createElement("div")
@@ -280,7 +305,7 @@ function renderNews(news) {
 
 
 
-// getNewsApi();
+getNewsApi();
 
 
 

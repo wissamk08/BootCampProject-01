@@ -92,6 +92,21 @@ a:hover {
     margin-top: 10px;
 }
 
+#search {
+    padding: 1%;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(231, 219, 233);
+}
+
+#search-input {
+    border-radius: 0px;
+    width: 300px;
+    height: 35px;
+    font-size: 25px;
+    font-style: italic;
+}
+
 /* Search Button */
 #search-button {
     display: inline;
@@ -110,8 +125,14 @@ a:hover {
 
 /* Stock Table */
 .stock-list {
+    width: 75%;
     align-items: center;
+<<<<<<< HEAD
     padding: 20px;
+=======
+    /* padding: 20px 200px 20px 200px; */
+    justify-content: left;
+>>>>>>> main
     border-style: groove;
     border-color: rgb(13, 202, 177);
     border-radius: 20px;
@@ -137,6 +158,8 @@ a:hover {
     border-width: 1px;
     border-radius: 3px;
     margin: 1%;
+    transform: scale(1.04);
+    max-width: 20%;
 }
 
 
@@ -145,13 +168,14 @@ a:hover {
     margin-bottom: 10px;
 } */
 
-#newsCard2 {
+#newsCard2:hover {
     text-align: center;
     border-style: solid;
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%
+    margin: 1%;
+    transform: scale(1.04)
 }
 #newsCard3 {
     text-align: center;
@@ -159,7 +183,8 @@ a:hover {
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%
+    margin: 1%;
+    transform: scale(1.04)
 }
 #newsCard4 {
     text-align: center;
@@ -167,7 +192,8 @@ a:hover {
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%
+    margin: 1%;
+    transform: scale(1.04)
 }
 #newsCard5 {
     text-align: center;
@@ -175,7 +201,8 @@ a:hover {
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%
+    margin: 1%;
+    transform: scale(1.04)
 }
 
 
