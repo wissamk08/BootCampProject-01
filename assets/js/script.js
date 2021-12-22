@@ -4,20 +4,23 @@ const tBodyEl = $("tbody");
 const tRowEl = $("tr");
 
 
-var apiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
+var apiKey = "_LaNx7emMoFfZ8iCsQNc9ljwjueJQf_z";
 var newsApiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 // $(#search-input).val();
 
 // Fix this to work for yesterday's date, if possible.
-var date = moment().subtract(4, 'days').format("YYYY-MM-DD");
+var daysPast = 1;
+var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
+
+
+
 console.log(date);
-
 var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
-
-
+var compTicker = $("#search-input").val().toUpperCase();
 
 function getAPI() {
-    var compTicker = $("#search-input").val().toUpperCase();
+    date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
+    compTicker = $("#search-input").val().toUpperCase();
     var companySearchURL = "https://api.polygon.io/v1/open-close/" + compTicker + "/" + date + "?adjusted=true&apiKey=" + apiKey;
 
     fetch(companySearchURL)
@@ -25,9 +28,11 @@ function getAPI() {
             return response.json();
     })
         .then(function (data) {
-
-            console.log(data);
             
+            console.log(data);
+
+            
+
             // Do not add errors or empty arrays to stocksArray
             // & Display error message for user.
             if ($("#not-found-message")) {
@@ -37,20 +42,47 @@ function getAPI() {
                 $("#error-status").remove();
             }
 
-            if (data.status === "NOT_FOUND") {
-                var notFound = document.createElement("p");
-                notFound.setAttribute("id", "not-found-message");
-                notFound.textContent = data.message;
-                headerEl.append(notFound);
-                return;
-            }
-            else if (data.status === "ERROR") {
-                var errorStatus = document.createElement("p");
-                errorStatus.setAttribute("id", "error-status");
-                errorStatus.textContent = "Error: " + data.error;
-                headerEl.append(errorStatus);
-                return;
-            }
+            
+
+            // if (data.status === "NOT_FOUND") {
+            //     var notFound = document.createElement("p");
+            //     notFound.setAttribute("id", "not-found-message");
+            //     notFound.textContent = data.message;
+            //     headerEl.append(notFound);
+            //     return;
+            // }
+            // else if (data.status === "ERROR") {
+            //     var errorStatus = document.createElement("p");
+            //     errorStatus.setAttribute("id", "error-status");
+            //     errorStatus.textContent = "Error: " + data.error;
+            //     headerEl.append(errorStatus);
+            //     return;
+            // }
+
+            // while (data.status === "NOT_FOUND" || data.status === "ERROR") {
+            //     past++;
+            //     console.log(date);
+            //     if (data.status === "NOT_FOUND") {
+            //         var notFound = document.createElement("p");
+            //         notFound.setAttribute("id", "not-found-message");
+            //         notFound.textContent = data.message;
+            //         headerEl.append(notFound);
+            //         return;
+            //     }
+            //     else if (data.status === "ERROR") {
+            //         var errorStatus = document.createElement("p");
+            //         errorStatus.setAttribute("id", "error-status");
+            //         errorStatus.textContent = "Error: " + data.error;
+            //         headerEl.append(errorStatus);
+            //         return;
+            //     }
+            //     if (past == 5) {
+            //         return;
+            //     }
+            //     else {
+            //         getAPI();
+            //     }
+            // }
 
             // Set newest data to top of stocksArray.
             stocksArray.unshift(data);
@@ -280,7 +312,7 @@ function renderNews(news) {
 
 
 
-getNewsApi();
+// getNewsApi();
 
 
 
