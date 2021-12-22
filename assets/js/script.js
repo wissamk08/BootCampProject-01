@@ -157,25 +157,24 @@ companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-
 
 function getNewsApi() {
 
-	fetch("https://tech-news3.p.rapidapi.com/wired", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "tech-news3.p.rapidapi.com",
-		"x-rapidapi-key": "fb63a7b6d5msh7afd34be9d3a803p195cdajsn344d92ba3d99"
-	}
+    const newsSearchURL = "https://api.polygon.io/v2/reference/news?ticker=" + compTicker + "&limit=10&apiKey=" + newsApiKey;
+
+    compTicker = $("#search-input").val().toUpperCase();
+
+    fetch(newsSearchURL)
+
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        
+        console.log(data);
 	})
-	.then(response => {
-		return response.json();
-		
-
-	}).then(function(data) {
-
-		console.log(data)
-		
-
+	
 		renderNews(data);
-	})
+    
 }
+
 
 function renderNews(news) {
 	// Create column for every object in news
