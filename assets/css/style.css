@@ -58,6 +58,19 @@ a:hover {
     border-radius: 0px;
     margin-left: 20px;
     margin-top: 10px;
+  
+#search {
+    padding: 1%;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(231, 219, 233);
+}
+
+#search-input {
+    border-radius: 0px;
+    width: 300px;
+    height: 35px;
+    font-size: 25px;
 }
 
 /* Search Button */
@@ -105,6 +118,7 @@ a:hover {
     border-width: 1px;
     border-radius: 3px;
     margin: 1%;
+    transform: scale(1.04)
 }
 
 
@@ -113,13 +127,14 @@ a:hover {
     margin-bottom: 10px;
 } */
 
-#newsCard2 {
+#newsCard2:hover {
     text-align: center;
     border-style: solid;
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%
+    margin: 1%;
+    transform: scale(1.04)
 }
 #newsCard3 {
     text-align: center;
@@ -127,7 +142,8 @@ a:hover {
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%
+    margin: 1%;
+    transform: scale(1.04)
 }
 #newsCard4 {
     text-align: center;
@@ -135,7 +151,8 @@ a:hover {
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%
+    margin: 1%;
+    transform: scale(1.04)
 }
 #newsCard5 {
     text-align: center;
@@ -143,7 +160,8 @@ a:hover {
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%
+    margin: 1%;
+    transform: scale(1.04)
 }
 
 
