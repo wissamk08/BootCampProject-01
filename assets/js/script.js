@@ -9,18 +9,19 @@ var newsApiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 // $(#search-input).val();
 
 // Fix this to work for yesterday's date, if possible.
+
 var daysPast = 1;
 var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
-
-
 
 console.log(date);
 var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
 var compTicker = $("#search-input").val().toUpperCase();
 
 function getAPI() {
+
     date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
     compTicker = $("#search-input").val().toUpperCase();
+
     var companySearchURL = "https://api.polygon.io/v1/open-close/" + compTicker + "/" + date + "?adjusted=true&apiKey=" + apiKey;
 
     fetch(companySearchURL)
@@ -30,6 +31,20 @@ function getAPI() {
         .then(function (data) {
             
             console.log(data);
+
+        
+        if(data.status === "ERROR"){
+            daysPast++
+            if (daysPast === 10){
+                return
+            }
+            else{
+                getAPI()
+            };
+
+            };
+
+
 
             
 
@@ -44,45 +59,22 @@ function getAPI() {
 
             
 
-            // if (data.status === "NOT_FOUND") {
-            //     var notFound = document.createElement("p");
-            //     notFound.setAttribute("id", "not-found-message");
-            //     notFound.textContent = data.message;
-            //     headerEl.append(notFound);
-            //     return;
-            // }
-            // else if (data.status === "ERROR") {
-            //     var errorStatus = document.createElement("p");
-            //     errorStatus.setAttribute("id", "error-status");
-            //     errorStatus.textContent = "Error: " + data.error;
-            //     headerEl.append(errorStatus);
-            //     return;
-            // }
+            if (data.status === "NOT_FOUND") {
+                var notFound = document.createElement("p");
+                notFound.setAttribute("id", "not-found-message");
+                notFound.textContent = data.message;
+                headerEl.append(notFound);
+                return;
+            }
+            else if (data.status === "ERROR") {
+                var errorStatus = document.createElement("p");
+                errorStatus.setAttribute("id", "error-status");
+                errorStatus.textContent = "Error: " + data.error;
+                headerEl.append(errorStatus);
+                return;
+            }
 
-            // while (data.status === "NOT_FOUND" || data.status === "ERROR") {
-            //     past++;
-            //     console.log(date);
-            //     if (data.status === "NOT_FOUND") {
-            //         var notFound = document.createElement("p");
-            //         notFound.setAttribute("id", "not-found-message");
-            //         notFound.textContent = data.message;
-            //         headerEl.append(notFound);
-            //         return;
-            //     }
-            //     else if (data.status === "ERROR") {
-            //         var errorStatus = document.createElement("p");
-            //         errorStatus.setAttribute("id", "error-status");
-            //         errorStatus.textContent = "Error: " + data.error;
-            //         headerEl.append(errorStatus);
-            //         return;
-            //     }
-            //     if (past == 5) {
-            //         return;
-            //     }
-            //     else {
-            //         getAPI();
-            //     }
-            // }
+            
 
             // Set newest data to top of stocksArray.
             stocksArray.unshift(data);
@@ -210,7 +202,6 @@ function renderNews(news) {
         // Appending Card to newsCard Element
         $("#newsCard1").append(newsCardBody1);
         
-
         // NEWS CARD 2 ===========
 
         const newsCardBody2 = document.createElement("div")
