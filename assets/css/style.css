@@ -1,40 +1,101 @@
 .title {
-    color:  rgb(231, 219, 233);
-    background-color: purple;
+    color:  rgb(25, 33, 44);
     text-align: left;
     font-family: 'Abril Fatface', cursive;
     padding: 5px 0px 5px 55px;
     font-size: 50px;
-    
 }
 
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 3%;
+    background-color: rgb(13, 202, 177);
+}
+
+/* Footer Styling */
+#footer-label {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    min-width: 500px;
+    background-color: rgb(13, 202, 177);
+    border-top-style: ridge;
+    border-color: rgb(27, 108, 116);
+}
+
+/* Navbar */
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    min-width: 500px;
+    list-style-type: none;
+}
+
+.li:hover {
+    text-decoration: underline gray;
+    transform: scale(1.5);
+}
+
+nav a {
+    text-decoration: none; 
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    color: rgb(15, 9, 9);
+    font-size: 22px;
+    padding: 15px;
+}  
+
+a:hover {
+    text-decoration: underline;
+    transform: scale(1.5);
+}
+
+/* Search Bar */
 #search-input {
     border-radius: 0px;
-    width: 300px;
-    height: 35px;
-    font-size: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
+/* Search Button */
 #search-button {
     display: inline;
-    color: rgb(119, 82, 119);
-    height: 35px;
-    font-size: 35px;
+    justify-content: center;
+    height: 200px;
+    margin-bottom: 50px;
 }
 
+/* Subtitle */
+.subtitle {
+    margin-left: 20px;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* Stock Table */
 .stock-list {
     align-items: center;
     padding: 20px 200px 20px 200px;
     justify-content: center;
+    border-style: groove;
+    border-color: rgb(13, 202, 177);
+    border-radius: 20px;
+    border-width: 20px;
 }
+
+/* Search Button Style */
 #search {
-    background-color: purple;
+    background-color: rgb(13, 202, 177);
+    color: rgb(0, 0, 0);
 }
 
 #newsContainer {
     display:inline-flex;
     margin: 2%;
-
 }
 
 #newsCard1 {
@@ -46,15 +107,11 @@
     margin: 1%;
 }
 
-h2 {
-    font-weight: 800;
-    margin-bottom: 10px;
-    margin-top: 15px;
-}
 
-p {
+
+/* p {
     margin-bottom: 10px;
-}
+} */
 
 #newsCard2 {
     text-align: center;
