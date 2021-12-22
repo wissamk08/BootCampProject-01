@@ -2,8 +2,10 @@
     color:  rgb(231, 219, 233);
     background-color: purple;
     text-align: left;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'sans-serif';
+    font-family: 'Abril Fatface', cursive;
     padding: 5px 0px 5px 55px;
+    font-size: 50px;
+    
 }
 
 #search-input {
@@ -28,3 +30,68 @@
 #search {
     background-color: purple;
 }
+
+#newsContainer {
+    display:inline-flex;
+    margin: 2%;
+
+}
+
+#newsCard1 {
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 3px;
+    margin: 1%;
+}
+
+h2 {
+    font-weight: 800;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+#newsCard2 {
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 3px;
+    margin: 1%
+}
+#newsCard3 {
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 3px;
+    margin: 1%
+}
+#newsCard4 {
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 3px;
+    margin: 1%
+}
+#newsCard5 {
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 3px;
+    margin: 1%
+}
+
+
+/* NAV BAR */
+/* 
+:hover {
+    transform: scale(1.04);
+} */

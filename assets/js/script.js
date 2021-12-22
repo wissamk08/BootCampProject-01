@@ -17,7 +17,7 @@ var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
 
 
 function getAPI() {
-    var compTicker = $("#search-input").val();
+    var compTicker = $("#search-input").val().toUpperCase();
     var companySearchURL = "https://api.polygon.io/v1/open-close/" + compTicker + "/" + date + "?adjusted=true&apiKey=" + apiKey;
 
     fetch(companySearchURL)
@@ -95,19 +95,19 @@ function renderTable() {
         var stockDate = document.createElement("td");
         stockDate.textContent = date;
         var open = document.createElement("td");
-        open.textContent = stocksArray[i].open;
+        open.textContent = "$" + stocksArray[i].open;
         var high = document.createElement("td");
-        high.textContent = stocksArray[i].high;
+        high.textContent = "$" + stocksArray[i].high;
         var low = document.createElement("td");
-        low.textContent = stocksArray[i].low;
+        low.textContent = "$" + stocksArray[i].low;
         var close = document.createElement("td");
-        close.textContent = stocksArray[i].close;
+        close.textContent = "$" + stocksArray[i].close;
         var volume = document.createElement("td");
         volume.textContent = stocksArray[i].volume;
         var afterHours = document.createElement("td");
-        afterHours.textContent = stocksArray[i].afterHours;
+        afterHours.textContent = "$" + stocksArray[i].afterHours;
         var preMarket = document.createElement("td");
-        preMarket.textContent = stocksArray[i].preMarket;
+        preMarket.textContent = "$" + stocksArray[i].preMarket;
 
         // Append each column element to current row
         $("#row" + i).append(dataSymbol, stockDate, open, high, low, close, volume, afterHours, preMarket);
@@ -147,40 +147,148 @@ function getNewsApi() {
 
 function renderNews(news) {
 	// Create column for every object in news
-	for(i = 0; i < news.length; i++) {
+    // Limiting the Array output to one object per output
+	for(i = 19; i < news.length; i++) {
 
 		console.log(news)
 
-
-		const newsCardBody = document.createElement("div");
+        // NEWS CARD 1 ============
+		const newsCardBody1 = document.createElement("div")
 
 		const newsHeadLines = document.createElement("h2");
 
-		newsHeadLines.textContent = news[i].title
+		newsHeadLines.textContent = news[0].title
 
-		const newsLink = document.createElement("img");
+		const newsImg = document.createElement("img")
+        // img.src = newsImg.textContent
+        // var src = document.getElementById("header1");
+        // src.appendChild(img);
 
-		newsLink.img = news[i].img
+		newsImg.textContent = news[0].img
 
 		const newsPara = document.createElement("p");
 
-		newsPara.textContent = news[i].para
+		newsPara.textContent = news[0].para
 
-		const newsPara = document.createElement("a");
+		const newsLink = document.createElement("a");
 
-		newsPara.textContent = news[i].para
+		newsLink.textContent = news[0].link
+        // Appending Parameters to Card
+        newsCardBody1.append(newsImg, newsHeadLines, newsPara, newsLink);
+        // Appending Card to newsCard Element
+        $("#newsCard1").append(newsCardBody1);
+        
 
+        // NEWS CARD 2 ===========
 
-		
+        const newsCardBody2 = document.createElement("div")
 
-		newsCardBody.append(newsHeadLines, newsLink, newsPara);
+		const newsHeadLines2 = document.createElement("h2");
 
-		$("#newsCardDeck").append(newsCardBody);
+		newsHeadLines2.textContent = news[1].title
+
+		const newsImg2 = document.createElement("img");
+
+		newsImg2.img = news[1].img
+
+		const newsPara2 = document.createElement("p");
+
+		newsPara2.textContent = news[1].para
+
+		const newsLink2 = document.createElement("a");
+
+		newsLink2.textContent = news[1].link
+         // Appending Parameters to Card
+        newsCardBody2.append(newsHeadLines2, newsPara2, newsLink2, newsImg2);
+        // Appending Card to newsCard Element
+        $("#newsCard2").append(newsCardBody2);
+
+        // NEWS CARD 3 ===========
+
+        const newsCardBody3 = document.createElement("div")
+
+		const newsHeadLines3 = document.createElement("h2");
+
+		newsHeadLines3.textContent = news[2].title
+
+		const newsImg3 = document.createElement("img");
+
+		newsImg3.img = news[2].img
+
+		const newsPara3 = document.createElement("p");
+
+		newsPara3.textContent = news[2].para
+
+		const newsLink3 = document.createElement("a");
+
+		newsLink3.textContent = news[2].link
+         // Appending Parameters to Card
+        newsCardBody3.append(newsHeadLines3, newsPara3, newsLink3, newsImg3);
+        // Appending Card to newsCard Element
+		$("#newsCard3").append(newsCardBody3);
+
+        // NEWS CARD 4 ===========
+
+        const newsCardBody4 = document.createElement("div")
+
+		const newsHeadLines4 = document.createElement("h2");
+
+		newsHeadLines4.textContent = news[3].title
+
+		const newsImg4 = document.createElement("img");
+
+		newsImg4.textContent = news[3].img
+
+		const newsPara4 = document.createElement("p");
+
+		newsPara4.textContent = news[3].para
+
+		const newsLink4 = document.createElement("a");
+
+		newsLink4.textContent = news[3].link
+        // Appending Parameters to Card
+        newsCardBody4.append(newsHeadLines4, newsPara4, newsLink4, newsImg4);
+        // Appending Card to newsCard Element
+		$("#newsCard4").append(newsCardBody4);
+
+        // NEWS CARD 5 ===========
+
+        const newsCardBody5 = document.createElement("div")
+
+		const newsHeadLines5 = document.createElement("h2");
+
+		newsHeadLines5.textContent = news[4].title
+
+		const newsImg5 = document.createElement("img");
+
+		newsImg5.img = news[4].img
+
+		const newsPara5 = document.createElement("p");
+
+		newsPara5.textContent = news[4].para
+
+		const newsLink5 = document.createElement("a");
+
+		newsLink5.textContent = news[4].link
+        // Appending Parameters to Card
+        newsCardBody5.append(newsHeadLines5, newsPara5, newsLink5, newsImg5);
+        // Appending Card to newsCard Element
+		$("#newsCard5").append(newsCardBody5);
 
 	}
 }
 
 
 
-
 getNewsApi();
+
+
+
+
+// Possible Api for Exchange charts
+
+// http://api.marketstack.com/v1/exchanges
+//     ? access_key = YOUR_ACCESS_KEY
+
+//     & limit = 100
+//     & offset = 0
