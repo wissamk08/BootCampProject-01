@@ -7,17 +7,20 @@ const tRowEl = $("tr");
 var apiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 var newsApiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 // $(#search-input).val();
+var daysPast = 0
 
 // Fix this to work for yesterday's date, if possible.
-var date = moment().subtract(4, 'days').format("YYYY-MM-DD");
-console.log(date);
+var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
+// console.log(date);
 
 var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
 
 
 
 function getAPI() {
-    var compTicker = $("#search-input").val();
+    var compTicker = $("#search-input").val().toUpperCase();
+    var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
+// console.log(date);
     var companySearchURL = "https://api.polygon.io/v1/open-close/" + compTicker + "/" + date + "?adjusted=true&apiKey=" + apiKey;
 
     fetch(companySearchURL)
@@ -27,6 +30,17 @@ function getAPI() {
         .then(function (data) {
 
             console.log(data);
+        
+        if(data.status === "ERROR"){
+            daysPast++
+            if (daysPast === 10){
+                return
+            }
+            else{
+                getAPI()
+            };
+
+            };
             
             // Do not add errors or empty arrays to stocksArray
             // & Display error message for user.
@@ -166,9 +180,9 @@ function renderNews(news) {
 
 		newsPara.textContent = news[i].para
 
-		const newsPara = document.createElement("a");
+		const newsParaLink = document.createElement("a");
 
-		newsPara.textContent = news[i].para
+		newsParaLink.textContent = news[i].para
 
 
 		
