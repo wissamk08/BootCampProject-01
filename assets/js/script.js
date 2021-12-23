@@ -150,6 +150,7 @@ search.addEventListener("click", getNewsApi);
 
 function getNewsApi() {
 
+    
     compTicker = $("#search-input").val().toUpperCase();
 
     const newsSearchURL = "https://api.polygon.io/v2/reference/news?ticker=" + compTicker +"&limit=10&apiKey=5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
@@ -160,153 +161,56 @@ function getNewsApi() {
         return response.json();
     })
     .then(function (data) {
+
+        // Add to local storage ****
         
         console.log(data);
 
         renderNews(data);
 	})
-	
-	
     
 }
-
 
 function renderNews(data) {
 	// Create column for every object in news
     // Limiting the Array output to one object per output
-	for(i = 5; i < data.results.length; i++) {
+	for(i = 9; i < data.results.length; i++) {
 
 		// console.log(data)
 
         // NEWS CARD 1 ============
+
+        compTicker = $("#search-input").val().toUpperCase();
 
     
 		const newsCardBody1 = document.createElement("div")
 
 		const newsHeadLines = document.createElement("h2");
 
-		newsHeadLines.textContent = data.results[5].title
+		newsHeadLines.textContent = data.results[0].title
 
 		const newsImg = document.createElement("img")
 
-		newsImg.src = data.results[5].image_url
+		newsImg.src = data.results[0].image_url
 
 		const newsPara = document.createElement("p");
 
-		newsPara.textContent = data.results[5].description
+		newsPara.textContent = data.results[0].description
 
 		const newsLink = document.createElement("a");
 
-		newsLink.textContent = data.results[5].article_url
+		newsLink.textContent = data.results[0].article_url
+
+        // newsLink.href = data.results[0].article_url
 
         // Appending Parameters to Card
         newsCardBody1.append(newsImg, newsHeadLines, newsPara, newsLink);
         // Appending Card to newsCard Element
-        $("#newsCard1").append(newsCardBody1);
+        $("#newsContainer").append(newsCardBody1);
         
-        // NEWS CARD 2 ===========
-
-        const newsCardBody2 = document.createElement("div")
-
-		const newsHeadLines2 = document.createElement("h2");
-
-		newsHeadLines2.textContent = news[1].title
-
-		const newsImg2 = document.createElement("img");
-
-		newsImg2.img = news[1].img
-
-		const newsPara2 = document.createElement("p");
-
-		newsPara2.textContent = news[1].para
-
-		const newsLink2 = document.createElement("a");
-
-		newsLink2.textContent = news[1].link
-         // Appending Parameters to Card
-        newsCardBody2.append(newsHeadLines2, newsPara2, newsLink2, newsImg2);
-        // Appending Card to newsCard Element
-        $("#newsCard2").append(newsCardBody2);
-
-        // NEWS CARD 3 ===========
-
-        const newsCardBody3 = document.createElement("div")
-
-		const newsHeadLines3 = document.createElement("h2");
-
-		newsHeadLines3.textContent = news[2].title
-
-		const newsImg3 = document.createElement("img");
-
-		newsImg3.img = news[2].img
-
-		const newsPara3 = document.createElement("p");
-
-		newsPara3.textContent = news[2].para
-
-		const newsLink3 = document.createElement("a");
-
-		newsLink3.textContent = news[2].link
-         // Appending Parameters to Card
-        newsCardBody3.append(newsHeadLines3, newsPara3, newsLink3, newsImg3);
-        // Appending Card to newsCard Element
-		$("#newsCard3").append(newsCardBody3);
-
-        // NEWS CARD 4 ===========
-
-        const newsCardBody4 = document.createElement("div")
-
-		const newsHeadLines4 = document.createElement("h2");
-
-		newsHeadLines4.textContent = news[3].title
-
-		const newsImg4 = document.createElement("img");
-
-		newsImg4.textContent = news[3].img
-
-		const newsPara4 = document.createElement("p");
-
-		newsPara4.textContent = news[3].para
-
-		const newsLink4 = document.createElement("a");
-
-		newsLink4.textContent = news[3].link
-        // Appending Parameters to Card
-        newsCardBody4.append(newsHeadLines4, newsPara4, newsLink4, newsImg4);
-        // Appending Card to newsCard Element
-		$("#newsCard4").append(newsCardBody4);
-
-        // NEWS CARD 5 ===========
-
-        const newsCardBody5 = document.createElement("div")
-
-		const newsHeadLines5 = document.createElement("h2");
-
-		newsHeadLines5.textContent = news[4].title
-
-		const newsImg5 = document.createElement("img");
-
-		newsImg5.img = news[4].img
-
-		const newsPara5 = document.createElement("p");
-
-		newsPara5.textContent = news[4].para
-
-		const newsLink5 = document.createElement("a");
-
-		newsLink5.textContent = news[4].link
-        // Appending Parameters to Card
-        newsCardBody5.append(newsHeadLines5, newsPara5, newsLink5, newsImg5);
-        // Appending Card to newsCard Element
-		$("#newsCard5").append(newsCardBody5);
 
 	}
 }
-
-
-
-getNewsApi();
-
 
 
 
