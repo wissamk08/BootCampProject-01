@@ -3,7 +3,8 @@
     text-align: left;
     font-family: 'Abril Fatface', cursive;
     padding: 5px 0px 5px 55px;
-    font-size: 50px;
+    font-size: 65px;
+   
 }
 
 /* Header */
@@ -105,6 +106,7 @@ a:hover {
     height: 35px;
     font-size: 25px;
     font-style: italic;
+    margin-top: 5px;
 }
 
 /* Search Button */
@@ -112,7 +114,7 @@ a:hover {
     display: inline;
     justify-content: center;
     height: 200px;
-    margin-bottom: 50px;
+    margin-top: 5px;
 }
 
 /* Subtitle */
@@ -125,85 +127,68 @@ a:hover {
 
 /* Stock Table */
 .stock-list {
-    width: 75%;
+    margin-right: 40%;
     align-items: center;
-<<<<<<< HEAD
     padding: 20px;
-=======
-    /* padding: 20px 200px 20px 200px; */
+    padding: 20px 20px 20px 20px;
     justify-content: left;
->>>>>>> main
     border-style: groove;
     border-color: rgb(13, 202, 177);
     border-radius: 20px;
     border-width: 20px;
-    width: 0%;
+    margin-top: 10px;
+    /* width: 0%; */
 }
 
 /* Search Button Style */
 #search {
+    padding: 5px;
+    font-size: 20px;
+    margin-top: 5px;
     background-color: rgb(13, 202, 177);
     color: rgb(0, 0, 0);
 }
 
+
+.stickchart {
+    justify-content: center;
+    
+}
+
+
+
+
+/* News */
 #newsContainer {
     display:inline-flex;
     margin: 2%;
 }
 
-#newsCard1 {
+#newsContainer div {
+    border-style: solid;
+    margin: 2%;
     text-align: center;
     border-style: solid;
     border-color: black;
     border-width: 1px;
     border-radius: 3px;
-    margin: 1%;
-    transform: scale(1.04);
-    max-width: 20%;
+    margin: 5px; 
 }
+
+#newsContainer div h2 {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+
 
 
 
 /* p {
     margin-bottom: 10px;
 } */
+/* Style for the news cards */
 
-#newsCard2:hover {
-    text-align: center;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 3px;
-    margin: 1%;
-    transform: scale(1.04)
-}
-#newsCard3 {
-    text-align: center;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 3px;
-    margin: 1%;
-    transform: scale(1.04)
-}
-#newsCard4 {
-    text-align: center;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 3px;
-    margin: 1%;
-    transform: scale(1.04)
-}
-#newsCard5 {
-    text-align: center;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 3px;
-    margin: 1%;
-    transform: scale(1.04)
-}
 
 
 /* NAV BAR */
