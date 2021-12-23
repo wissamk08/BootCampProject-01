@@ -148,9 +148,6 @@ function renderChartSymbol() {
     // Create a row for every object in stocksArray
     for (i = 0; i < stocksArray.length; i++) {
         
-        const unique = (value, symbolsArray, self) => {
-            return self.
-        }
 
         var dataSymbol = document.createElement("div");
         // set text for column 1
@@ -160,6 +157,15 @@ function renderChartSymbol() {
 
         $("symbols" + i).push(dataSymbol)
 
+        // symbolsArray.unshift(data);
+
+        //     // Remove oldest stock from array if total stocks reaches above 10.
+        //     if (symbolsArray.length > 10) {
+        //         symbolsArray.pop();
+        //      }
+
+        //     // Store new stocksArray into local storage.
+        //     localStorage.setItem("stock", JSON.stringify(symbolsArray));
         
     }
 
