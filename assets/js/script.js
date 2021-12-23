@@ -13,8 +13,9 @@ var newsApiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
 var daysPast = 1;
 var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
 
-console.log(date);
+// console.log(date);
 var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
+
 var compTicker = $("#search-input").val().toUpperCase();
 
 function getAPI() {
@@ -45,9 +46,6 @@ function getAPI() {
             };
 
 
-
-            
-
             // Do not add errors or empty arrays to stocksArray
             // & Display error message for user.
             if ($("#not-found-message")) {
@@ -75,7 +73,6 @@ function getAPI() {
             }
 
             
-
             // Set newest data to top of stocksArray.
             stocksArray.unshift(data);
 
@@ -86,7 +83,10 @@ function getAPI() {
 
             // Store new stocksArray into local storage.
             localStorage.setItem("stock", JSON.stringify(stocksArray));
+            
+            
             renderTable();
+            renderChartSymbol();
     });
 }
 
@@ -95,7 +95,6 @@ search.addEventListener("click", getAPI);
 
 // search.addEventListener("click", getAPI);
 // getAPI();
-
 
 
 // Create table
@@ -136,9 +135,71 @@ function renderTable() {
         // Append each column element to current row
         $("#row" + i).append(dataSymbol, stockDate, open, high, low, close, volume, afterHours, preMarket);
 
+      
     }
 }
 renderTable();
+
+
+symbolsArray = [];
+
+function renderChartSymbol() {
+   
+    // Create a row for every object in stocksArray
+    for (i = 0; i < stocksArray.length; i++) {
+        
+        const unique = (value, symbolsArray, self) => {
+            return self.
+        }
+
+        var dataSymbol = document.createElement("div");
+        // set text for column 1
+        dataSymbol.textContent = stocksArray[i].symbol;
+
+        symbolsArray.push([stocksArray[i].symbol, stocksArray[i].symbol])
+
+        $("symbols" + i).push(dataSymbol)
+
+        
+    }
+
+    chartRender();
+    
+}
+
+chartRender();
+
+function chartRender() {
+
+    new TradingView.MediumWidget(
+        {
+        "symbols": symbolsArray,
+        "chartOnly": false,
+        "width": 1000,
+        "height": 400,
+        "locale": "en",
+        "colorTheme": "light",
+        "gridLineColor": "rgba(42 ,46, 57, 0)",
+        "fontColor": "#787B86",
+        "isTransparent": false,
+        "autosize": false,
+        "showFloatingTooltip": true,
+        "showVolume": false,
+        "scalePosition": "no",
+        "scaleMode": "Normal",
+        "fontFamily": "Trebuchet MS, sans-serif",
+        "noTimeScale": false,
+        "chartType": "area",
+        "lineColor": "#2962FF",
+        "bottomColor": "rgba(41, 98, 255, 0)",
+        "topColor": "rgba(41, 98, 255, 0.3)",
+        "container_id": "tradingview_02e2e"
+      }
+        );
+}
+
+
+console.log(symbolsArray)
 
 
 
@@ -208,16 +269,6 @@ function renderNews(data) {
         // Appending Card to newsCard Element
         $("#newsContainer").append(newsCardBody1);
         
-
 	}
 }
 
-
-
-// Possible Api for Exchange charts
-
-// http://api.marketstack.com/v1/exchanges
-//     ? access_key = YOUR_ACCESS_KEY
-
-//     & limit = 100
-//     & offset = 0
