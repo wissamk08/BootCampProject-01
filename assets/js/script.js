@@ -91,7 +91,7 @@ function getAPI() {
 }
 
 
-search.addEventListener("click", getAPI);
+$("#search-form").on("submit", getAPI);
 
 // search.addEventListener("click", getAPI);
 // getAPI();
@@ -99,7 +99,7 @@ search.addEventListener("click", getAPI);
 
 // Create table
 function renderTable() {
-   
+  
     
     // Create a row for every object in stocksArray
     for (i = 0; i < stocksArray.length; i++) {
@@ -212,8 +212,9 @@ console.log(symbolsArray)
 companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-06-01/2020-06-17?apiKey=5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv"
 
 
+
 // Fetch Api for Financial News 
-search.addEventListener("click", getNewsApi);
+$("#search-form").on("submit", getNewsApi);
 
 function getNewsApi() {
 
@@ -234,6 +235,7 @@ function getNewsApi() {
         console.log(data);
 
         renderNews(data);
+        
 	})
     
 }
