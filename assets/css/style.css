@@ -157,10 +157,13 @@ a:hover {
 
 
 
-
 /* News */
 #newsContainer {
-    display:inline-flex;
+    display:flex;
+    flex-wrap: wrap;
+    
+    width: 100%;
+    
     margin: 2%;
 }
 
@@ -173,6 +176,7 @@ a:hover {
     border-width: 1px;
     border-radius: 3px;
     margin: 5px; 
+    max-width: 25%;
 }
 
 #newsContainer div h2 {
