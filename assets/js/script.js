@@ -26,15 +26,15 @@ function getAPI() {
     })
         .then(function (data) {
             console.log(data);
-            if(data.status === "NOT_FOUND"){
-                daysPast++
-                if (daysPast === 10){
-                    return
-                }
-                else{
-                    getAPI()
-                };
-            };
+            // if(data.status === "NOT_FOUND"){
+            //     daysPast++
+            //     if (daysPast === 5){
+            //         return
+            //     }
+            //     else{
+            //         getAPI()
+            //     };
+            // };
 
             // Do not add errors or empty arrays to stocksArray
             // & Display error message for user.
@@ -50,6 +50,13 @@ function getAPI() {
                 notFound.setAttribute("id", "not-found-message");
                 notFound.textContent = data.message;
                 searchForm.append(notFound);
+                daysPast++
+                if (daysPast === 5){
+                    return
+                }
+                else{
+                    getAPI()
+                };
                 return;
             }
             else if (data.status === "ERROR") {
@@ -127,9 +134,7 @@ function renderTable() {
         preMarket.textContent = "$" + stocksArray[i].preMarket;
 
         // Append each column element to current row
-        $("#row" + i).append(dataSymbol, stockDate, open, high, low, close, volume, afterHours, preMarket);
-
-      
+        $("#row" + i).append(dataSymbol, stockDate, open, high, low, close, volume, afterHours, preMarket);      
     }
 }
 renderTable();
@@ -155,7 +160,6 @@ function renderChartSymbol() {
     
 }
 
-chartRender();
 
 function chartRender() {
 
@@ -186,12 +190,7 @@ function chartRender() {
         );
 }
 
-
-
-
-
-companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-06-01/2020-06-17?apiKey=5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv"
-
+renderChartSymbol();
 
 
 // Fetch Api for Financial News 
@@ -212,8 +211,6 @@ function getNewsApi() {
         return response.json();
     })
     .then(function (data) {
-
-        // Add to local storage ****
         
         console.log(data);
 
