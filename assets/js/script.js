@@ -160,7 +160,24 @@ function renderChartSymbol() {
         // set text for column 1
         dataSymbol.textContent = stocksArray[i].symbol;
 
+
+        symbolsArray.push([stocksArray[i].symbol])
+
+        $("symbols" + i).push(dataSymbol)
+
+        // symbolsArray.unshift(data);
+
+        // // Remove oldest stock from array if total stocks reaches above 10.
+        // if (symbolsArray.length > 10) {
+        //     symbolsArray.pop();
+        //     }
+
+        // Store new stocksArray into local storage.
+        localStorage.setItem("stock", JSON.stringify(symbolsArray));
+        
+
         symbolsArray[i] = stocksArray[i].symbol
+
     }
 
     console.log(symbolsArray)
