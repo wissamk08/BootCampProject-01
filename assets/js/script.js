@@ -160,13 +160,13 @@ function renderChartSymbol() {
 
         // symbolsArray.unshift(data);
 
-        //     // Remove oldest stock from array if total stocks reaches above 10.
-        //     if (symbolsArray.length > 10) {
-        //         symbolsArray.pop();
-        //      }
+        // // Remove oldest stock from array if total stocks reaches above 10.
+        // if (symbolsArray.length > 10) {
+        //     symbolsArray.pop();
+        //     }
 
-        //     // Store new stocksArray into local storage.
-        //     localStorage.setItem("stock", JSON.stringify(symbolsArray));
+        // Store new stocksArray into local storage.
+        localStorage.setItem("stock", JSON.stringify(symbolsArray));
         
     }
 
