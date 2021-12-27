@@ -25,7 +25,7 @@
           <li><a href="#contact-info">Contact Info</a></li>
           <li>
             <div class="dropdown-list">
-            <button class="dropbutton">Trading Platforms</button>
+            <button class="dropbutton">Start Trading</button>
               <div class="dropdown-links">
                 <a href="https://www.interactivebrokers.com/en/index.php?f=4695&gclid=CjwKCAiAtouOBhA6EiwA2nLKH0uoSM1kulgKf4BPsCfvwluAukSWLFjbcuR9G-tYrjqnMRJr9i5usxoCNm4QAvD_BwE">Interactive Brokers</a>
                 <a href="https://robinhood.com/us/en/">Robinhood</a>
@@ -39,133 +39,216 @@
 
     <section>
       <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-  "symbols": [
-    {
-      "proName": "FOREXCOM:SPXUSD",
-      "title": "S&P 500"
-    },
-    {
-      "proName": "FOREXCOM:NSXUSD",
-      "title": "US 100"
-    },
-    {
-      "proName": "FX_IDC:EURUSD",
-      "title": "EUR/USD"
-    },
-    {
-      "proName": "BITSTAMP:BTCUSD",
-      "title": "Bitcoin"
-    },
-    {
-      "proName": "BITSTAMP:ETHUSD",
-      "title": "Ethereum"
-    }
-  ],
-  "showSymbolLogo": true,
-  "colorTheme": "dark",
-  "isTransparent": false,
-  "displayMode": "adaptive",
-  "locale": "en"
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+          {
+            "proName": "FOREXCOM:SPXUSD",
+            "title": "S&P 500"
+          },
+          {
+            "proName": "FOREXCOM:NSXUSD",
+            "title": "US 100"
+          },
+          {
+            "proName": "NASDAQ:AAPL",
+            "title": "APPLE INC."
+          },
+          {
+            "proName": "BITSTAMP:BTCUSD",
+            "title": "Bitcoin"
+          },
+          {
+            "proName": "NASDAQ:MSFT",
+            "title": "Microsoft Corp"
+          }
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "dark",
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "locale": "en"
+      }
+        </script>
+      </div>
+      <!-- TradingView Widget END -->
     </section>
 
+    <section class="searchandforex">
+      <form id="search-form">
+        <input id="search-input" type="text" placeholder="Search Company by Ticker"></input>
+      
+        <div id="search-button">
+          <button type="button" id="search">Search</button>
+        </div>
+      </form>
 
-    <form id="search-form">
-      <input id="search-input" type="text" placeholder="Search Company by Ticker"></input>
-     
-      <div id="search-button">
-        <button type="button" id="search">Search</button>
+      <div class="forexwiget">
+         <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/EURUSD/?exchange=FX" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {
+          "symbol": "FX:EURUSD",
+          "width": 305,
+          "colorTheme": "light",
+          "isTransparent": false,
+          "locale": "en"
+        }
+          </script>
+        </div>
+        <!-- TradingView Widget END -->
       </div>
-    </form>
 
-    <section class="stock-list">
-        <table class="table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Date</th>
-            <th>Open</th>
-            <th>High</th>
-            <th>Low</th>
-            <th>Close</th>
-            <th>Volume</th>
-            <th>After Hours</th>
-            <th>Pre-Market</th>
-          </tr>
-        </thead>
+      <div class="forexwiget">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/USDJPY/?exchange=FX" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {
+          "symbol": "FX:USDJPY",
+          "width": 305,
+          "colorTheme": "light",
+          "isTransparent": false,
+          "locale": "en"
+        }
+          </script>
+        </div>
+        <!-- TradingView Widget END -->
+      </div>
 
-        <div class="stockchart">
+      <div class="forexwiget">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/USDCHF/?exchange=FX" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+          {
+          "symbol": "FX:USDCHF",
+          "width": 305,
+          "colorTheme": "light",
+          "isTransparent": false,
+          "locale": "en"
+        }
+          </script>
+        </div>
+        <!-- TradingView Widget END -->
+      </div>
+
+      <div class="forexwiget">
           <!-- TradingView Widget BEGIN -->
           <div class="tradingview-widget-container">
-            <div id="tradingview_02e2e"></div>
-            <div class="tradingview-widget-copyright"><a id="chart-symbol-start" href="https://www.tradingview.com/symbols/AAPL" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-            <script type="text/javascript">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/USDCAD/?exchange=FX" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+            {
+            "symbol": "FX:USDCAD",
+            "width": 305,
+            "colorTheme": "light",
+            "isTransparent": false,
+            "locale": "en"
+          }
             </script>
           </div>
-        <!-- TradingView Widget END -->
-        </div>
-
-
-        <tfoot>
-          <tr>
-            <th>Symbol</th>
-            <th>Date</th>
-            <th>Open</th>
-            <th>High</th>
-            <th>Low</th>
-            <th>Close</th>
-            <th>Volume</th>
-            <th>After Hours</th>
-            <th>Pre-Market</th>
-          </tr>
-        </tfoot>
-        <tbody>
-          <tr id="row0">
-
-            <!-- Rows will be filled in via script.js -->
-
-          </tr>
-          <tr id="row1">
-
-          </tr>
-          <tr id="row2">
-
-            
-          </tr>
-          <tr id="row3">
-            
-          </tr>
-          <tr id="row4">
-
-          </tr>
-          <tr id="row5">
-           
-          </tr>
-          <tr id="row6">
-
-          </tr>
-          <tr id="row7">
-            
-          </tr>
-          <tr id="row8">
-            
-          </tr>
-          <tr id="row9">
-            
-          </tr>
-        </tbody>
-      </table>
+          <!-- TradingView Widget END -->
+      </div>
     </section>
 
+ 
+
+    
+      <section class="stock-list">
+
+        <section class="stockChartContainer">
+          <aside>
+            <div class="stockchart">
+              <!-- TradingView Widget BEGIN -->
+              <div class="tradingview-widget-container">
+                <div id="tradingview_02e2e"></div>
+                <div class="tradingview-widget-copyright"><a id="chart-symbol-start" href="https://www.tradingview.com/symbols/AAPL" rel="noopener" target="_blank"><span class="blue-text"></span></a></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                </script>
+              </div>
+            <!-- TradingView Widget END -->
+            </div>
+          </aside>
+        </section>    
+
+          <table class="table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Date</th>
+              <th>Open</th>
+              <th>High</th>
+              <th>Low</th>
+              <th>Close</th>
+              <th>Volume</th>
+              <th>After Hours</th>
+              <th>Pre-Market</th>
+            </tr>
+          </thead>
+
+          <tfoot>
+            <tr>
+              <th>Symbol</th>
+              <th>Date</th>
+              <th>Open</th>
+              <th>High</th>
+              <th>Low</th>
+              <th>Close</th>
+              <th>Volume</th>
+              <th>After Hours</th>
+              <th>Pre-Market</th>
+            </tr>
+          </tfoot>
+ 
+
+
+          <tbody>
+            <tr id="row0">
+
+              <!-- Rows will be filled in via script.js -->
+
+            </tr>
+            <tr id="row1">
+
+            </tr>
+            <tr id="row2">
+
+              
+            </tr>
+            <tr id="row3">
+              
+            </tr>
+            <tr id="row4">
+
+            </tr>
+            <tr id="row5">
+            
+            </tr>
+            <tr id="row6">
+
+            </tr>
+            <tr id="row7">
+              
+            </tr>
+            <tr id="row8">
+              
+            </tr>
+            <tr id="row9">
+              
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    
 
 
     <section>
