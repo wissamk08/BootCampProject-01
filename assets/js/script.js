@@ -25,6 +25,19 @@ function getAPI() {
             return response.json();
     })
         .then(function (data) {
+
+            
+            // console.log(data);
+
+        
+        if(data.status === "ERROR"){
+            daysPast++
+            if (daysPast === 10){
+                return
+            }
+            else{
+                getAPI()
+
             console.log(data);
             if(data.status === "NOT_FOUND"){
                 daysPast++
@@ -34,6 +47,7 @@ function getAPI() {
                 else{
                     getAPI()
                 };
+
             };
 
             // Do not add errors or empty arrays to stocksArray
@@ -169,6 +183,8 @@ function renderChartSymbol() {
 
 chartRender();
 
+
+
 function chartRender() {
 
     new TradingView.MediumWidget(
@@ -211,6 +227,8 @@ companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-
 // $("#search-form").on("button", getNewsApi);
 
 search.addEventListener("click", getNewsApi);
+
+getNewsApi();
 
 function getNewsApi() {
 
