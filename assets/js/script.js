@@ -199,7 +199,6 @@ renderChartSymbol();
 
 
 // Fetch Api for Financial News 
-// $("#search-form").on("button", getNewsApi);
 
 search.addEventListener("click", getNewsApi);
 
