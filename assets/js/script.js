@@ -31,7 +31,7 @@ function getAPI() {
     })
         .then(function (data) {
             
-            console.log(data);
+            // console.log(data);
 
         
         if(data.status === "ERROR"){
@@ -176,6 +176,8 @@ function renderChartSymbol() {
 
 chartRender();
 
+
+
 function chartRender() {
 
     new TradingView.MediumWidget(
@@ -218,6 +220,8 @@ companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-
 // $("#search-form").on("button", getNewsApi);
 
 search.addEventListener("click", getNewsApi);
+
+getNewsApi();
 
 function getNewsApi() {
 
