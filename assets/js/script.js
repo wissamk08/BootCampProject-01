@@ -87,14 +87,15 @@ function getAPI() {
             
             renderTable();
             renderChartSymbol();
+            chartRender();
     });
 }
 
 
-$("#search-form").on("submit", getAPI);
+// $("#search-form").on("button", getAPI);
 
-// search.addEventListener("click", getAPI);
-// getAPI();
+search.addEventListener("click", getAPI);
+getAPI();
 
 
 // Create table
@@ -153,7 +154,7 @@ function renderChartSymbol() {
         // set text for column 1
         dataSymbol.textContent = stocksArray[i].symbol;
 
-        symbolsArray.push([stocksArray[i].symbol, stocksArray[i].symbol])
+        symbolsArray.push([stocksArray[i].symbol])
 
         $("symbols" + i).push(dataSymbol)
 
@@ -181,8 +182,8 @@ function chartRender() {
         {
         "symbols": symbolsArray,
         "chartOnly": false,
-        "width": 1000,
-        "height": 400,
+        "width": 750,
+        "height": 350,
         "locale": "en",
         "colorTheme": "light",
         "gridLineColor": "rgba(42 ,46, 57, 0)",
@@ -214,7 +215,9 @@ companySearchURL = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2020-
 
 
 // Fetch Api for Financial News 
-$("#search-form").on("submit", getNewsApi);
+// $("#search-form").on("button", getNewsApi);
+
+search.addEventListener("click", getNewsApi);
 
 function getNewsApi() {
 
@@ -245,7 +248,7 @@ function renderNews(data) {
     // Limiting the Array output to one object per output
 	for(i = 9; i < data.results.length; i++) {
 
-		// console.log(data)
+		console.log(data)
 
         // NEWS CARD 1 ============
 
@@ -278,5 +281,9 @@ function renderNews(data) {
         $("#newsContainer").append(newsCardBody1);
         
 	}
+
+  
 }
+
+
 
