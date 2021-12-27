@@ -26,15 +26,6 @@ function getAPI() {
     })
         .then(function (data) {
             console.log(data);
-            // if(data.status === "NOT_FOUND"){
-            //     daysPast++
-            //     if (daysPast === 5){
-            //         return
-            //     }
-            //     else{
-            //         getAPI()
-            //     };
-            // };
 
             // Do not add errors or empty arrays to stocksArray
             // & Display error message for user.
