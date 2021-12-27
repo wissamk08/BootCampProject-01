@@ -11,6 +11,8 @@ var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
 
 var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
 
+
+
 var compTicker = $("#search-input").val().toUpperCase();
 
 function getAPI() {
@@ -172,8 +174,8 @@ function chartRender() {
         {
         "symbols": symbolsArray,
         "chartOnly": false,
-        "width": 750,
-        "height": 350,
+        "width": 650,
+        "height": 450,
         "locale": "en",
         "colorTheme": "light",
         "gridLineColor": "rgba(42 ,46, 57, 0)",
@@ -226,6 +228,8 @@ function getNewsApi() {
     
 }
 
+newsCardBody1 = JSON.parse(localStorage.getItem("stock")) || [];
+
 function renderNews(data) {
 	// Create column for every object in news
     // Limiting the Array output to one object per output
@@ -260,6 +264,9 @@ function renderNews(data) {
 
         // Appending Parameters to Card
         newsCardBody1.append(newsImg, newsHeadLines, newsPara, newsLink);
+
+        localStorage.setItem("newsCard", JSON.stringify(newsCardBody1));
+        
         // Appending Card to newsCard Element
         $("#newsContainer").append(newsCardBody1);
         

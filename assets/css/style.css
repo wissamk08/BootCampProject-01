@@ -127,9 +127,8 @@ a:hover {
 
 /* Stock Table */
 .stock-list {
-    margin-right: 40%;
-    align-items: center;
-    padding: 20px;
+    display: flex;
+    
     padding: 20px 20px 20px 20px;
     justify-content: left;
     border-style: groove;
@@ -142,6 +141,7 @@ a:hover {
 
 /* Search Button Style */
 #search {
+    margin-left: 5px;
     padding: 5px;
     font-size: 20px;
     margin-top: 5px;
@@ -149,9 +149,24 @@ a:hover {
     color: rgb(0, 0, 0);
 }
 
+#search-form {
+    margin-top: 15px;
+}
 
-.stickchart {
-    justify-content: center;
+.searchandforex {
+    display: flex;
+    margin: 5px;
+}
+
+.forexwiget {
+    margin-left: 20px;
+}
+
+
+
+
+.stockChartContianer {
+   margin-left: 5px;
     
 }
 
