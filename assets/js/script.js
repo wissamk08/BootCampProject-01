@@ -1,19 +1,14 @@
-// var searchInputEl = $("#search-input");
-var headerEl = $(".section");
+const searchForm = $("#search-form");
 const tBodyEl = $("tbody");
 const tRowEl = $("tr");
 
 
 var apiKey = "_LaNx7emMoFfZ8iCsQNc9ljwjueJQf_z";
 var newsApiKey = "5kUQVR6ehDpKIKtoUyoViEDjNNLj9MHv";
-// $(#search-input).val();
-
-// Fix this to work for yesterday's date, if possible.
 
 var daysPast = 1;
 var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
 
-// console.log(date);
 var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
 
 var compTicker = $("#search-input").val().toUpperCase();
@@ -30,6 +25,7 @@ function getAPI() {
             return response.json();
     })
         .then(function (data) {
+
             
             // console.log(data);
 
@@ -41,10 +37,18 @@ function getAPI() {
             }
             else{
                 getAPI()
-            };
+
+            console.log(data);
+            if(data.status === "NOT_FOUND"){
+                daysPast++
+                if (daysPast === 10){
+                    return
+                }
+                else{
+                    getAPI()
+                };
 
             };
-
 
             // Do not add errors or empty arrays to stocksArray
             // & Display error message for user.
@@ -55,23 +59,28 @@ function getAPI() {
                 $("#error-status").remove();
             }
 
-            
-
             if (data.status === "NOT_FOUND") {
                 var notFound = document.createElement("p");
                 notFound.setAttribute("id", "not-found-message");
                 notFound.textContent = data.message;
-                headerEl.append(notFound);
+                searchForm.append(notFound);
                 return;
             }
             else if (data.status === "ERROR") {
                 var errorStatus = document.createElement("p");
                 errorStatus.setAttribute("id", "error-status");
                 errorStatus.textContent = "Error: " + data.error;
-                headerEl.append(errorStatus);
+                searchForm.append(errorStatus);
                 return;
             }
 
+            // Remove existing tickers if searching for a duplicate
+            for (i = 0; i < stocksArray.length; i++) {
+                let isContainedWithin = stocksArray[i].symbol;
+                if (isContainedWithin === compTicker) {
+                    stocksArray.splice(i, 1);
+                }
+            }
             
             // Set newest data to top of stocksArray.
             stocksArray.unshift(data);
@@ -92,10 +101,8 @@ function getAPI() {
 }
 
 
-// $("#search-form").on("button", getAPI);
 
 search.addEventListener("click", getAPI);
-getAPI();
 
 
 // Create table
@@ -142,17 +149,17 @@ function renderTable() {
 renderTable();
 
 
-symbolsArray = [];
+let symbolsArray = [{},{},{},{},{},{},{},{},{},{}];
 
 function renderChartSymbol() {
    
     // Create a row for every object in stocksArray
     for (i = 0; i < stocksArray.length; i++) {
         
-
         var dataSymbol = document.createElement("div");
         // set text for column 1
         dataSymbol.textContent = stocksArray[i].symbol;
+
 
         symbolsArray.push([stocksArray[i].symbol])
 
@@ -168,7 +175,12 @@ function renderChartSymbol() {
         // Store new stocksArray into local storage.
         localStorage.setItem("stock", JSON.stringify(symbolsArray));
         
+
+        symbolsArray[i] = stocksArray[i].symbol
+
     }
+
+    console.log(symbolsArray)
 
     chartRender();
     
@@ -208,7 +220,6 @@ function chartRender() {
 }
 
 
-console.log(symbolsArray)
 
 
 
