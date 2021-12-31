@@ -284,5 +284,8 @@ function renderNews(data) {
   
 }
 
-
+function darkMode() {
+    var darkElement = document.body;
+    darkElement.classList.toggle("dark-mode");
+}
 

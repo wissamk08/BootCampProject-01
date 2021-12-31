@@ -200,6 +200,7 @@ a:hover {
     text-decoration: underline;
 }
 
+
 #newsContainer a {
    word-wrap: break-word;
    padding: 5px;
@@ -209,6 +210,17 @@ a:hover {
 }
 
 
+/* Toggle Dark Mode */
+body {
+    background-color: white;
+    color: black;
+}
+
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
 
 
 
