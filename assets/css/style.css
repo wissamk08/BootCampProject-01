@@ -199,7 +199,16 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Toggle Dark Mode */
+body {
+    background-color: white;
+    color: black;
+}
 
+.dark-mode {
+    background-color: black;
+    color: white;
+}
 
 
 
