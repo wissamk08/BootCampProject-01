@@ -175,14 +175,14 @@ a:hover {
 /* News */
 #newsContainer {
     display:flex;
-    flex-wrap: wrap;
-    
-    width: 100%;
-    
-    margin: 2%;
+    width: min(90%, 1000px);
+    margin-inline: auto;
 }
 
 #newsContainer div {
+   
+    overflow: auto;
+    justify-content: center;
     border-style: solid;
     margin: 2%;
     text-align: center;
@@ -192,11 +192,20 @@ a:hover {
     border-radius: 3px;
     margin: 5px; 
     max-width: 25%;
+    padding: 5px;
 }
 
 #newsContainer div h2 {
     font-weight: 700;
     text-decoration: underline;
+}
+
+#newsContainer a {
+   word-wrap: break-word;
+   padding: 5px;
+   justify-content: center;
+   text-align: center;
+
 }
 
 

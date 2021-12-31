@@ -12,7 +12,6 @@ var date = moment().subtract(daysPast, 'days').format("YYYY-MM-DD");
 var stocksArray = JSON.parse(localStorage.getItem("stock")) || [];
 
 
-
 var compTicker = $("#search-input").val().toUpperCase();
 
 function getAPI() {
@@ -139,6 +138,8 @@ function renderTable() {
         var preMarket = document.createElement("td");
         preMarket.textContent = "$" + stocksArray[i].preMarket;
 
+
+
         // Append each column element to current row
         $("#row" + i).append(dataSymbol, stockDate, open, high, low, close, volume, afterHours, preMarket);      
     }
@@ -200,11 +201,14 @@ function chartRender() {
 renderChartSymbol();
 
 
+newsArray = JSON.parse(localStorage.getItem("newsCard")) || [];
+
+// let newsArray = [];
+
 // Fetch Api for Financial News 
 
 search.addEventListener("click", getNewsApi);
 
-getNewsApi();
 
 function getNewsApi() {
 
@@ -222,20 +226,20 @@ function getNewsApi() {
         
         console.log(data);
 
+        
+
         renderNews(data);
         
 	})
     
 }
 
-newsCardBody1 = JSON.parse(localStorage.getItem("stock")) || [];
 
 function renderNews(data) {
 	// Create column for every object in news
     // Limiting the Array output to one object per output
 	for(i = 9; i < data.results.length; i++) {
 
-		console.log(data)
 
         // NEWS CARD 1 ============
 
@@ -260,15 +264,20 @@ function renderNews(data) {
 
 		newsLink.textContent = data.results[0].article_url
 
-        // newsLink.href = data.results[0].article_url
+        
 
         // Appending Parameters to Card
         newsCardBody1.append(newsImg, newsHeadLines, newsPara, newsLink);
 
-        localStorage.setItem("newsCard", JSON.stringify(newsCardBody1));
+
+        localStorage.setItem("newsCard", JSON.stringify(newsArray));
+
+        newsArray.push(newsCardBody1)
+
+        console.log(newsArray)
         
         // Appending Card to newsCard Element
-        $("#newsContainer").append(newsCardBody1);
+        $("#newsContainer").append(newsArray);
         
 	}
 
