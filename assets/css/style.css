@@ -134,19 +134,7 @@ a:hover {
     margin-bottom: 20px;
 }
 
-/* Stock Table */
-.stock-list {
-    display: flex;
-    
-    padding: 20px 20px 20px 20px;
-    justify-content: left;
-    border-style: groove;
-    border-color: rgb(13, 202, 177);
-    border-radius: 20px;
-    border-width: 20px;
-    margin-top: 10px;
-    /* width: 0%; */
-}
+
 
 /* Search Button Style */
 #search {
@@ -179,18 +167,32 @@ a:hover {
     
 }
 
+/* Stock Table */
+.stock-list {
+    display: flex;
+    padding: 20px 20px 20px 20px;
+    justify-content: left;
+    border-style: groove;
+    border-color: rgb(13, 202, 177);
+    border-radius: 20px;
+    border-width: 20px;
+    margin-top: 10px;
+    /* width: 0%; */
+}
+
 
 
 /* News */
 #newsContainer {
     display:flex;
-    width: min(90%, 1000px);
-    margin-inline: auto;
+    flex-wrap: wrap;
+    /* width: min(90%, 1000px);
+    margin-inline: auto; */
 }
 
 #newsContainer div {
-   
-    overflow: auto;
+   max-height: 450px;
+    overflow: scroll;
     justify-content: center;
     border-style: solid;
     margin: 2%;
@@ -200,7 +202,7 @@ a:hover {
     border-width: 1px;
     border-radius: 3px;
     margin: 5px; 
-    max-width: 25%;
+    max-width: 20%;
     padding: 5px;
 }
 
@@ -255,3 +257,56 @@ body {
 :hover {
     transform: scale(1.04);
 } */
+
+@media screen and (min-width: 1650px) {
+
+.forexContainer {
+    display: inline-flex;
+   
+}
+}
+
+@media screen and (max-width: 1650px) {
+
+    .stock-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px 20px 20px 20px;
+        justify-content: left;
+        border-style: groove;
+        border-color: rgb(13, 202, 177);
+        border-radius: 20px;
+        border-width: 20px;
+        margin-top: 10px;
+}
+
+    .table {
+     width: 100%;
+    }
+
+    
+
+}
+
+@media screen and (max-width: 1000px) {
+    
+    .stock-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px 20px 20px 20px;
+        justify-content: left;
+        border-style: groove;
+        border-color: rgb(13, 202, 177);
+        border-radius: 20px;
+        border-width: 20px;
+        margin-top: 10px;
+}
+
+.table {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+}
