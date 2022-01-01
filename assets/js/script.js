@@ -137,6 +137,8 @@ function renderTable() {
         afterHours.textContent = "$" + stocksArray[i].afterHours;
         var preMarket = document.createElement("td");
         preMarket.textContent = "$" + stocksArray[i].preMarket;
+        var clearRow = document.createElement("td");
+        // clearRow.setAttribute('button')
 
 
 
@@ -201,9 +203,9 @@ function chartRender() {
 renderChartSymbol();
 
 
-newsArray = JSON.parse(localStorage.getItem("newsCard")) || [];
 
-// let newsArray = [];
+let newsArray = [];
+
 
 // Fetch Api for Financial News 
 
@@ -260,24 +262,30 @@ function renderNews(data) {
 
 		newsPara.textContent = data.results[0].description
 
-		const newsLink = document.createElement("a");
+        const newsLink = document.createElement("a");
 
 		newsLink.textContent = data.results[0].article_url
 
+        newsLink.setAttribute('href', newsLink.textContent)
         
+        newsLink.setAttribute('target', '_blank')
 
         // Appending Parameters to Card
         newsCardBody1.append(newsImg, newsHeadLines, newsPara, newsLink);
 
 
-        localStorage.setItem("newsCard", JSON.stringify(newsArray));
-
         newsArray.push(newsCardBody1)
 
+        localStorage.setItem("newsCard", JSON.stringify(newsArray));
+
+        
         console.log(newsArray)
         
+        newsArray= JSON.parse(localStorage.getItem("newsCard")) || [];
+
+
         // Appending Card to newsCard Element
-        $("#newsContainer").append(newsArray);
+        $("#newsContainer").append(newsCardBody1);
         
 	}
 
