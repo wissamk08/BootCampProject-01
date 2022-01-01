@@ -53,12 +53,21 @@ header {
 #footer-label {
     margin-top: auto;
     display: flex;
-    justify-content: space-between;
     min-width: 500px;
     background-color: rgb(13, 202, 177);
     border-top-style: ridge;
     border-color: rgb(27, 108, 116);
+    list-style-type: none;
+    padding: 10px;
+    justify-content: space-around;
+    color: black;
 }
+
+#footer-label a {
+    color: black;
+}
+
+
 
 /* Navbar */
 nav ul {
@@ -220,6 +229,16 @@ body {
 .dark-mode {
     background-color: black;
     color: white;
+}
+
+#darkMode-button {
+    background-color: rgb(5, 6, 7);
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#darkMode-button:hover {
+    background-color: rgb(243, 255, 71);
 }
 
 
