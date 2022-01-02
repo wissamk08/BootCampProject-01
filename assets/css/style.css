@@ -71,7 +71,7 @@ header {
 /* Navbar */
 nav ul {
     display: flex;
-    min-width: 500px;
+    min-width: 60%;
     list-style-type: none;
     margin-left: 3rem;
     margin-right: 1rem;
@@ -152,6 +152,7 @@ a:hover {
 
 .searchandforex {
     display: flex;
+    flex-wrap: wrap;
     margin: 5px;
 }
 
@@ -340,15 +341,72 @@ body {
 }
 
 
+/* Responsive Screen for tablet */
+@media screen and (max-width: 899px) {
+
+    .table {
+        display: inline-flex;
+        flex-wrap: wrap;
+    }
+
+    .stock-list {
+        display: flex;
+        padding: 20px 20px 20px 20px;
+        justify-content: left;
+        border-style: groove;
+        border-color: rgb(13, 202, 177);
+        border-radius: 20px;
+        border-width: 20px;
+        margin-top: 10px;
+    }
+
+}
+
+
+
+/* REsponsice Screen for small tablet / large phone */
 @media screen and (max-width: 756px) {
+
+
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: rgb(13, 202, 177);
+        height: 9rem;
+        margin-top: 0%;
+    }
+
+    .title {
+        color:  rgb(25, 33, 44);
+        text-align: center;
+        font-family: 'Abril Fatface', cursive;
+        font-size: 45px;
+        justify-content: center;
+        margin-top: 0%;
+       
+    }
 
     nav ul {
         display: inline-flex;
         flex-wrap: wrap;
-        min-width: 500px;
+        min-width: 90%;
         list-style-type: none;
         margin-left: 3rem;
         margin-right: 1rem;
+        margin-bottom: 5rem;
+    }
+
+    #darkMode-button {
+        background-color: rgb(5, 6, 7);
+        border-radius: 5px;
+        font-size: 20px;
+        justify-content: right;
+        margin: .5rem .25rem;
+        margin-left: 90%;
+    
     }
 
     #newsContainer div {
@@ -362,8 +420,14 @@ body {
          border-width: 1px;
          border-radius: 3px;
          margin: 5px; 
-         max-width: 40%;
+         max-width: 45%;
          padding: 5px;
+     }
+
+     .searchandforex {
+         justify-content: center;
+         align-items: center;
+          
      }
 
 }
