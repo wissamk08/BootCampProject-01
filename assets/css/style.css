@@ -15,6 +15,7 @@ header {
     color: white;
     padding: 3%;
     background-color: rgb(13, 202, 177);
+    height: 7rem;
 }
 
 /* Dropdown Button */
@@ -48,7 +49,6 @@ header {
 }
 
 
-
 /* Footer Styling */
 #footer-label {
     margin-top: auto;
@@ -68,13 +68,13 @@ header {
 }
 
 
-
 /* Navbar */
 nav ul {
     display: flex;
-    justify-content: space-between;
     min-width: 500px;
     list-style-type: none;
+    margin-left: 3rem;
+    margin-right: 1rem;
 }
 
 .li:hover {
@@ -88,6 +88,7 @@ nav a {
     color: rgb(15, 9, 9);
     font-size: 22px;
     padding: 15px;
+    margin-right: 5rem;
 }  
 
 a:hover {
@@ -135,7 +136,6 @@ a:hover {
 }
 
 
-
 /* Search Button Style */
 #search {
     margin-left: 5px;
@@ -159,12 +159,8 @@ a:hover {
     margin-left: 20px;
 }
 
-
-
-
 .stockChartContianer {
    margin-left: 5px;
-    
 }
 
 /* Stock Table */
@@ -177,7 +173,6 @@ a:hover {
     border-radius: 20px;
     border-width: 20px;
     margin-top: 10px;
-    /* width: 0%; */
 }
 
 
@@ -194,11 +189,10 @@ a:hover {
    max-height: 450px;
     overflow: scroll;
     justify-content: center;
-    border-style: solid;
     margin: 2%;
     text-align: center;
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid;
+    border-color: black; */
     border-width: 1px;
     border-radius: 3px;
     margin: 5px; 
@@ -237,12 +231,21 @@ body {
     background-color: rgb(5, 6, 7);
     border-radius: 5px;
     font-size: 20px;
+    justify-content: right;
+    margin: .5rem .25rem;
+    margin-left: 96%;
+
 }
 
 #darkMode-button:hover {
     background-color: rgb(243, 255, 71);
 }
 
+.buttonContainer {
+    background-color: rgb(13, 202, 177);
+    justify-content: right;
+    
+}
 
 
 /* p {
@@ -258,6 +261,9 @@ body {
     transform: scale(1.04);
 } */
 
+
+
+/* Relative Sizing for 27 inch monitor */
 @media screen and (min-width: 1650px) {
 
 .forexContainer {
@@ -284,11 +290,33 @@ body {
      width: 100%;
     }
 
-    
-
 }
 
+/* Responsive Screen for laptop screen */
 @media screen and (max-width: 1000px) {
+
+    .title {
+        color:  rgb(25, 33, 44);
+        text-align: left;
+        font-family: 'Abril Fatface', cursive;
+        padding: 5px 0px 5px 55px;
+        font-size: 45px;
+    }
+
+    nav a {
+        text-decoration: none; 
+        font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+        color: rgb(15, 9, 9);
+        font-size: 20px;
+        padding: 2px;
+        margin-right: 2rem;
+    }
+
+    .dropbutton {
+        padding-top: 5px;
+        font-size: 20px;
+        border: none;
+    }
     
     .stock-list {
         display: flex;
@@ -307,6 +335,35 @@ body {
     flex-wrap: wrap;
 }
 
+.forexContainer {
+    display:inline;
+}
 
+
+@media screen and (max-width: 756px) {
+
+    nav ul {
+        display: inline-flex;
+        flex-wrap: wrap;
+        min-width: 500px;
+        list-style-type: none;
+        margin-left: 3rem;
+        margin-right: 1rem;
+    }
+
+    #newsContainer div {
+        max-height: 450px;
+         overflow: scroll;
+         justify-content: center;
+         margin: 2%;
+         text-align: center;
+         /* border-style: solid;
+         border-color: black; */
+         border-width: 1px;
+         border-radius: 3px;
+         margin: 5px; 
+         max-width: 40%;
+         padding: 5px;
+     }
 
 }
