@@ -262,16 +262,49 @@ body {
     transform: scale(1.04);
 } */
 
+@media screen and (max-width: 1650px) {
+    .searchandforex {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: .4rem
+    }
+}
 
+ @media screen and (min-width: 1650px) {
+    .forexContainer {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: .4rem
+    }
+
+    .stock-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px 20px 20px 20px;
+        justify-content: left;
+        border-style: groove;
+        border-color: rgb(13, 202, 177);
+        border-radius: 20px;
+        border-width: 20px;
+        margin-top: 10px;
+        
+}
+
+ } 
 
 /* Relative Sizing for 27 inch monitor */
-@media screen and (min-width: 1650px) {
+@media screen and (max-width: 1650px) {
 
-.forexContainer {
-    display: inline-flex;
+ .forexContainer {
+     display: inline-flex; 
+     width: 95%;
    
 }
 }
+
+
 
 @media screen and (max-width: 1650px) {
 
@@ -285,6 +318,7 @@ body {
         border-radius: 20px;
         border-width: 20px;
         margin-top: 10px;
+        
 }
 
     .table {
@@ -293,6 +327,16 @@ body {
 
 }
 
+@media screen and (max-width: 1000px) {
+    .forexContainer {
+        display: inline-flex; 
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        /* flex-wrap: wrap; */
+        width: 95%;    
+    }
+}
 /* Responsive Screen for laptop screen */
 @media screen and (max-width: 1000px) {
 
@@ -329,6 +373,7 @@ body {
         border-radius: 20px;
         border-width: 20px;
         margin-top: 10px;
+        width: 95%;
 }
 
 .table {
@@ -345,7 +390,7 @@ body {
 @media screen and (max-width: 899px) {
 
     .table {
-        display: inline-flex;
+        display: flex;
         flex-wrap: wrap;
     }
 
@@ -364,7 +409,7 @@ body {
 
 
 
-/* REsponsice Screen for small tablet / large phone */
+/* /* Responsice Screen for small tablet */
 @media screen and (max-width: 756px) {
 
 
@@ -392,7 +437,7 @@ body {
     nav ul {
         display: inline-flex;
         flex-wrap: wrap;
-        min-width: 90%;
+        /* min-width: 90%; */
         list-style-type: none;
         margin-left: 3rem;
         margin-right: 1rem;
@@ -425,9 +470,59 @@ body {
      }
 
      .searchandforex {
+         display: inline-flex;
+         flex-wrap: wrap;
+         margin-top: 0%;
          justify-content: center;
          align-items: center;
+         width: 95%;
           
      }
 
+}
+
+@media screen and (min-width: 756px) {
+
+    .searchandforex {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.forexContainer {
+    margin-left: 40%;
+}
+
+#search-form {
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+    padding-bottom: 2rem;
+}
+
+
+@media screen and (max-width: 456px) {
+    
+    .table {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .searchandforex {
+        justify-content: center;
+        align-items: center;
+        margin-left: 40%;
+    }
+
+    .search-button {
+        justify-content: center;
+        align-items: center;
+        margin-left: 40%;
+    }
+    .stock-list {
+        
+        display: flex;
+        overflow: auto;
+        
+    }
 }

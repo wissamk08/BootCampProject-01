@@ -178,7 +178,7 @@ function chartRender() {
         "symbols": symbolsArray,
         "chartOnly": false,
         "width": 650,
-        "height": 450,
+        "height": 400,
         "locale": "en",
         "colorTheme": "light",
         "gridLineColor": "rgba(42 ,46, 57, 0)",
