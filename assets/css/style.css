@@ -481,6 +481,20 @@ body {
 
 }
 
+}
+.supForm {
+    display: inline-block;
+    justify-content: center;
+    width: 400px;
+    margin-left: 42%;
+    margin-top: 10%;
+    border-style: groove;
+        border-color: rgb(13, 202, 177);
+        border-radius: 20px;
+        border-width: 20px;
+    }
+
+
 @media screen and (min-width: 756px) {
 
     .searchandforex {
@@ -526,3 +540,4 @@ body {
         
     }
 }
+
