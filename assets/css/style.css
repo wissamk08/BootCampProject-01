@@ -403,6 +403,7 @@ body {
     .table {
         display: flex;
         flex-wrap: wrap;
+        transform: scale(80%);
     }
 
     .stock-list {
@@ -538,7 +539,8 @@ body {
         
         display: flex;
         overflow: auto;
-        
     }
+    
+    
 }
 
