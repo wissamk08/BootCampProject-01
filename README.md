@@ -13,7 +13,7 @@
 * THEN I am presented with an image related to the article, a headliner, a summarized description of the article and a clickable link to the main article
 ---
 
-![screenshot](https://scontent.fphx1-2.fna.fbcdn.net/v/t39.30808-6/s960x960/271190379_10227800217451156_1333322156268823638_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=730e14&_nc_ohc=UJas0TA0LOsAX-IiHER&_nc_ht=scontent.fphx1-2.fna&oh=00_AT_Z-rshKVn6QuLTgt0ymIOljpVHiwLKDNYK70Inbb4I6Q&oe=61D8D237)
+![screenshot](./images/stox-ster.png)
 
 ---
-## https://github.com/wissamk08/BootCampProject-01
+## https://wissamk08.github.io/BootCampProject-01
