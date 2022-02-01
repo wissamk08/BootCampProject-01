@@ -1,4 +1,4 @@
-# BootCampProject-01
+# Stox-Ster
 ---
 * GIVEN a stock monitoring platform
 * WHEN I open the page
